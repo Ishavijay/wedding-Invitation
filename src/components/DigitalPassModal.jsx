@@ -33,8 +33,8 @@ export default function DigitalPassModal({ guestData, onClose }) {
         <div className="pass-body">
           <div className="pass-monogram">A &amp; A</div>
           <h2 className="pass-couple-title">Sameep Vijay &amp; Rakshita Vijay</h2>
-          <p className="pass-subtitle">The Oberoi Jaipur • Jaipur, Rajasthan</p>
-          <p className="pass-dates">December 13 &amp; 14, 2026</p>
+          <p className="pass-subtitle">Gulab Bagh and hotel, Mansarovar, Jaipur</p>
+          <p className="pass-dates">December 11 &amp; 14, 2026</p>
 
           <div className="pass-divider-cutout">
             <span className="cutout-circle-left"></span>

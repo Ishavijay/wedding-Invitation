@@ -10,7 +10,7 @@ export const weddingEvents = [
     venue: "The Mewar Lawns, The Oberoi Udaivilas",
     city: "Jaipur, Rajasthan",
     description: "Intricate henna patterns, joyful folk music, dhol beats, and traditional Rajasthani swings under the golden morning sun.",
-    image: "/assets/Wedding events/Rasm-e-Heena.webp",
+    image: "/assets/Wedding events/Rasm-e-Heena.png",
     mapQuery: "The Oberoi Udaivilas Jaipur",
     embedMapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3628.3298687796934!2d73.6687989758778!3d24.58287755651036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967e54736f86617%3A0x6739bb457e4e116!2sThe%20Oberoi%20Udaivilas%2C%20Udaipur!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
     calendarUrl: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Haldi+Ceremony+-+Sameep+Vijay+%26+Rakshita+Vijay&dates=20261210T043000Z/20261210T090000Z&details=Haldi+Celebrations&location=Jaipur,+Rajasthan"

@@ -41,13 +41,13 @@ export default function HeroSection() {
 
         {/* Couple Names */}
         <h1 className="hero-couple-names">
-          <span>Sameep Vijay</span>
-          <span className="hero-ampersand-ornate">&amp;</span>
           <span>Rakshita Vijay</span>
+          <span className="hero-ampersand-ornate">&amp;</span>
+          <span>Sameep Vijay</span>
         </h1>
 
         <p className="hero-event-pill">
-          December 11, 2026 • The Oberoi Jaipur, Rajasthan
+          December 11, 2026 • Gulabh Bagh and hotel, Mansarovar, Jaipur, Rajasthan
         </p>
 
         {/* Couple Portrait Cutout Anchor */}

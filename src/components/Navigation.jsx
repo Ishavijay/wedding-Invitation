@@ -22,7 +22,7 @@ export default function Navigation() {
     { label: "Our Story", href: "#story" },
     { label: "Events", href: "#events" },
     { label: "Gallery", href: "#gallery" },
-    { label: "RSVP", href: "#rsvp" }
+    // { label: "RSVP", href: "#rsvp" }
   ];
 
   return (
@@ -41,10 +41,10 @@ export default function Navigation() {
               {link.label}
             </a>
           ))}
-          <a href="#rsvp" className="nav-rsvp-pill">
+          {/* <a href="#rsvp" className="nav-rsvp-pill">
             <Heart size={13} fill="currentColor" />
             <span>RSVP</span>
-          </a>
+          </a> */}
         </nav>
 
         {/* Mobile Hamburger Toggle */}

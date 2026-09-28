@@ -117,9 +117,7 @@ export default function App() {
       />
 
       {/* 8. Luxury RSVP & Attendance Confirmation */}
-      <RsvpSection
-        onOpenPass={(guest) => setPassGuest(guest)}
-      />
+      {/* <RsvpSection onOpenPass={(guest) => setPassGuest(guest)} /> */}
 
       {/* 9. Royal Monogram Footer */}
       <Footer />
