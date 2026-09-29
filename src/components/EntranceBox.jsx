@@ -73,7 +73,7 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
               poster="/assets/Entrance_Box_Front.webp"
               onEnded={handleVideoEnded}
             >
-              <source src="/assets/Entrance Box Video.mp4" type="video/mp4" />
+              <source src="/assets/Entrance%20Box%20Video.mp4" type="video/mp4" />
             </video>
           )}
         </div>
