@@ -125,9 +125,10 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 1.25rem;
+          padding: 1rem;
           background: radial-gradient(circle at center, #2D1418 0%, #15080A 100%);
           animation: fadeIn 0.6s ease-out;
+          overflow-y: auto;
         }
 
         .entrance-backdrop {
@@ -143,44 +144,45 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
           position: relative;
           z-index: 2;
           width: 100%;
-          max-width: 440px;
-          background: rgba(45, 20, 24, 0.85);
+          max-width: 420px;
+          background: rgba(45, 20, 24, 0.88);
           backdrop-filter: blur(16px);
           border: 1.5px solid rgba(197, 154, 69, 0.45);
           border-radius: 28px;
-          padding: 2.2rem 1.8rem;
+          padding: 1.8rem 1.6rem;
           box-shadow: 0 25px 65px rgba(0, 0, 0, 0.65), 0 0 40px rgba(197, 154, 69, 0.2);
           text-align: center;
           display: flex;
           flex-direction: column;
           align-items: center;
+          margin: auto;
         }
 
         .entrance-header {
           display: flex;
           flex-direction: column;
           align-items: center;
-          margin-bottom: 1.5rem;
+          margin-bottom: 1.2rem;
         }
 
         .entrance-ganesh-icon {
-          width: 44px;
+          width: 40px;
           height: auto;
           filter: drop-shadow(0 2px 8px rgba(197, 154, 69, 0.6));
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.4rem;
         }
 
         .entrance-shloka {
           font-family: var(--font-serif);
           color: var(--royal-gold-light);
-          font-size: 1.05rem;
+          font-size: 0.95rem;
           letter-spacing: 0.08em;
         }
 
         .entrance-media-frame {
           width: 100%;
-          max-width: 320px;
-          aspect-ratio: 9 / 14;
+          max-width: 300px;
+          aspect-ratio: 3 / 4;
           border-radius: 20px;
           overflow: hidden;
           position: relative;
@@ -249,11 +251,11 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
         }
 
         .entrance-action-center {
-          margin-top: 1.8rem;
+          margin-top: 1.2rem;
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 1rem;
+          gap: 0.75rem;
         }
 
         .entrance-interactive-tap {
@@ -332,7 +334,7 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
         }
 
         .entrance-opening-loader {
-          margin-top: 1.8rem;
+          margin-top: 1.2rem;
           display: flex;
           flex-direction: column;
           align-items: center;

@@ -73,7 +73,7 @@ export default function HeroSection() {
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 7.5rem 0 3rem;
+          padding: 6rem 0 2.5rem;
           overflow: hidden;
           background: #231215;
           text-align: center;
@@ -89,13 +89,13 @@ export default function HeroSection() {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          object-position: center top;
+          object-position: center center;
         }
 
         .hero-vignette-overlay {
           position: absolute;
           inset: 0;
-          background: radial-gradient(circle at center, rgba(35, 18, 21, 0.35) 0%, rgba(20, 8, 10, 0.78) 100%);
+          background: radial-gradient(circle at center, rgba(35, 18, 21, 0.25) 0%, rgba(20, 8, 10, 0.70) 100%);
         }
 
         .hero-content-container {
@@ -191,7 +191,7 @@ export default function HeroSection() {
 
         .hero-couple-cutout-frame {
           width: 100%;
-          max-width: 440px;
+          max-width: 380px;
           margin: 0 auto;
           position: relative;
           z-index: 2;
@@ -202,7 +202,7 @@ export default function HeroSection() {
         .hero-couple-portrait {
           width: 100%;
           height: auto;
-          max-height: 480px;
+          max-height: 420px;
           object-fit: contain;
           filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.75));
           animation: floatGentle 5s ease-in-out infinite;
@@ -244,17 +244,21 @@ export default function HeroSection() {
 
         @media (max-width: 768px) {
           .royal-hero-section {
-            padding: 6rem 0 2rem;
+            padding: 5rem 0 1.5rem;
           }
           .hero-couple-names {
             flex-direction: column;
             gap: 0.1rem;
+            font-size: clamp(2.2rem, 7vw, 4rem);
           }
           .hero-couple-cutout-frame {
-            max-width: 320px;
+            max-width: 280px;
           }
           .hero-couple-portrait {
-            max-height: 380px;
+            max-height: 320px;
+          }
+          .hero-content-container {
+            padding-top: 0.5rem;
           }
         }
       `}</style>
