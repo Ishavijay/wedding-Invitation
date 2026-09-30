@@ -251,6 +251,9 @@ export default function HeroSection() {
             gap: 0.1rem;
             font-size: clamp(2.2rem, 7vw, 4rem);
           }
+          .hero-ampersand-ornate {
+            transform: translateY(0.25em);
+          }
           .hero-couple-cutout-frame {
             max-width: 280px;
           }

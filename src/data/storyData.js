@@ -1,9 +1,9 @@
 export const storyMilestones = [
   {
     step: 0,
-    badge: "Chapter 1 of 4 • The Beginning",
+    badge: "Chapter 1 of 4 • The First Hello!",
     date: "February 7",
-    title: "The First Hello",
+    title: "The beginning!!",
     desc: "Where our story began!!",
     image: "/assets/Couple IMages/Couple_image.webp",
     emoji: "✨",
@@ -11,9 +11,9 @@ export const storyMilestones = [
   },
   {
     step: 1,
-    badge: "Chapter 2 of 4 • The meet",
+    badge: "Chapter 2 of 4 • Finally, Face to Face",
     date: "March 14",
-    title: "Finally, Face to Face",
+    title: "The Meet",
     desc: "The day We Met!!",
     image: "/assets/Couple IMages/Couple_image1.webp",
     emoji: "☕",
