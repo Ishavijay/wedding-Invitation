@@ -262,8 +262,8 @@ export default function WeddingEvents() {
         .chapter-thumb-img {
           width: 100%;
           height: 100%;
-          object-fit: contain;
-          padding: 10px;
+          object-fit: cover;
+          padding: 0;
           transition: transform 0.5s ease;
         }
 
@@ -507,6 +507,12 @@ export default function WeddingEvents() {
           }
         }
         @media (max-width: 768px) {
+          .itinerary-filter-tabs {
+            flex-direction: column;
+          }
+          .filter-tab-pill {
+            width: min(100%, 360px);
+          }
           .storybook-chapter-card {
             padding: 1.8rem 1.4rem;
           }

@@ -5,9 +5,9 @@ export const weddingEvents = [
     title: "Mehandi Ceremony",
     day: "Day 1",
     dateFormatted: "Wednesday, December 9, 2026",
-    time: "4:00 PM onwards",
-    shortTime: "Wed, Dec 9 • 4:00 PM",
-    venue: "Gulab Bagh and Hotel Mansarovar, Jaipur, Rajasthan",
+    time: "Evening",
+    shortTime: "Wed, Dec 9 • Evening",
+    venue: "180/26, Pratap Nagar, Jaipur, Rajasthan",
     city: "Jaipur, Rajasthan",
     description: "Intricate henna patterns, joyful folk music, dhol beats, and traditional Rajasthani swings celebrating the onset of wedding festivities.",
     image: "/assets/Wedding events/Rasm-e-Heena3.png"
