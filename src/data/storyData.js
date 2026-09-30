@@ -32,7 +32,7 @@ export const storyMilestones = [
   {
     step: 3,
     badge: "Chapter 4 of 4 • Forever Begins",
-    date: "December 11, 2026",
+    date: "December 11",
     title: "Saath Phere & Forever",
     desc: "And So it Begins!! Our next chapter begins here",
     image: "/assets/Couple IMages/Couple_image3.webp",
