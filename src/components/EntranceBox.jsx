@@ -4,15 +4,26 @@ import { Volume2, Sparkles, ChevronRight } from 'lucide-react';
 export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
   const [isPlayingVideo, setIsPlayingVideo] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const videoRef = useRef(null);
   const timerRef = useRef(null);
+  const closeTimerRef = useRef(null);
+  const closingRef = useRef(false);
 
   // Clean up timers on unmount
   useEffect(() => {
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     };
   }, []);
+
+  const closeInvitation = () => {
+    if (closingRef.current) return;
+    closingRef.current = true;
+    setIsClosing(true);
+    closeTimerRef.current = setTimeout(onEnter, 950);
+  };
 
   const handleTapToOpen = () => {
     if (hasStarted) return;
@@ -40,17 +51,17 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
 
     // Safety fallback: video is 3.8s, enter after 4.1s if onEnded hasn't fired
     timerRef.current = setTimeout(() => {
-      onEnter();
+      closeInvitation();
     }, 4100);
   };
 
   const handleVideoEnded = () => {
     if (timerRef.current) clearTimeout(timerRef.current);
-    onEnter();
+    closeInvitation();
   };
 
   return (
-    <div className="entrance-overlay-container">
+    <div className={`entrance-overlay-container ${isClosing ? 'is-closing' : ''}`}>
       <div className="entrance-backdrop"></div>
 
       <div className="entrance-stage-card">
@@ -113,7 +124,7 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
             <button
               type="button"
               className="entrance-skip-btn"
-              onClick={onEnter}
+              onClick={closeInvitation}
             >
               <span>Direct Entrance</span>
               <ChevronRight size={14} />
@@ -141,6 +152,13 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
           background: radial-gradient(circle at center, #2D1418 0%, #15080A 100%);
           animation: fadeIn 0.6s ease-out;
           overflow-y: auto;
+          transform: translateY(0);
+          transition: transform 0.95s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        .entrance-overlay-container.is-closing {
+          transform: translateY(100%);
+          pointer-events: none;
         }
 
         .entrance-backdrop {
@@ -193,8 +211,8 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
         }
 
         .entrance-media-frame {
-          width: auto;
-          height: min(48vh, 400px);
+          width: min(292.5px, 30.9375vh);
+          height: min(55vh, 520px);
           aspect-ratio: 9 / 16;
           border-radius: 18px;
           overflow: hidden;
@@ -242,7 +260,7 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
           justify-content: center;
           border: 2.5px solid #FFF3B0;
           box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 20px rgba(236, 200, 116, 0.5);
-          animation: pulseGlow 2.4s infinite ease-in-out;
+          animation: pulseSeal 2.4s infinite ease-in-out;
         }
 
         .seal-monogram {
@@ -399,6 +417,11 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
         @keyframes progressFill {
           0% { width: 0%; }
           100% { width: 100%; }
+        }
+
+        @keyframes pulseSeal {
+          0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.85; }
+          50% { transform: translate(-50%, -50%) scale(1.06); opacity: 1; }
         }
 
         @keyframes rippleEffect {

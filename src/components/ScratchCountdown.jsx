@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
-import { Calendar, Sparkles, ChevronDown, CheckCircle2 } from 'lucide-react';
+import { Sparkles, ChevronDown, CheckCircle2 } from 'lucide-react';
 import { useCountdown } from '../hooks/useCountdown';
 import { fireRoyalConfetti } from '../hooks/useConfetti';
 
@@ -138,10 +138,6 @@ export default function ScratchCountdown() {
 
   const handleTouchEnd = () => setIsDrawing(false);
 
-  // Google Calendar Link generator
-  const googleCalUrl =
-    "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Royal+Wedding+-+Sameep+Vijay+%26+Rakshita+Vijay&dates=20261211T113000Z/20261211T183000Z&details=Royal+Wedding+Celebration+of+Sameep+Vijay+and+Rakshita+Vijay+at+Gulab+Bagh+and+Hotel+Mansarovar,+Jaipur,+Rajasthan.&location=Gulab+Bagh+and+Hotel+Mansarovar,+Jaipur,+Rajasthan";
-
   return (
     <section className="section-padding bg-palace-pattern" id="countdown">
       {/* SVG Heart Clip-Path Definition */}
@@ -168,13 +164,15 @@ export default function ScratchCountdown() {
           <div className="scratch-heart-container">
             {/* Background Revealed Content */}
             <div className="scratch-revealed-layer">
-              <span className="lotus-sacred-icon" aria-hidden="true">🪷</span>
-              <p className="revealed-save-date">Save The Date</p>
-              <h3 className="revealed-main-date">December 11, 2026</h3>
-              <p className="revealed-venue-title">Gulab Bagh and Hotel Mansarovar • Jaipur</p>
-              <div className="revealed-badge-pill">
-                <CheckCircle2 size={14} className="revealed-check" />
-                <span>Date Revealed</span>
+              <div className="scratch-revealed-content">
+                <span className="lotus-sacred-icon" aria-hidden="true">🪷</span>
+                <p className="revealed-save-date">Save The Date</p>
+                <h3 className="revealed-main-date">December 11, 2026</h3>
+                <p className="revealed-venue-title">Gulab Bagh and Hotel Mansarovar • Jaipur</p>
+                <div className="revealed-badge-pill">
+                  <CheckCircle2 size={14} className="revealed-check" />
+                  <span>Date Revealed</span>
+                </div>
               </div>
             </div>
 
@@ -235,17 +233,6 @@ export default function ScratchCountdown() {
             </div>
           </div>
 
-          <div className="countdown-actions-row">
-            <a
-              href={googleCalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-royal-gold"
-            >
-              <Calendar size={18} />
-              <span>Add to Google Calendar</span>
-            </a>
-          </div>
         </div>
 
         {/* Scroll Cue to Next Section */}
@@ -269,6 +256,7 @@ export default function ScratchCountdown() {
           display: flex;
           flex-direction: column;
           align-items: center;
+          width: 100%;
           margin-bottom: 4rem;
         }
 
@@ -281,6 +269,7 @@ export default function ScratchCountdown() {
           filter: drop-shadow(0 15px 30px rgba(197, 154, 69, 0.35));
           background: linear-gradient(135deg, #721829 0%, #460C17 100%);
           cursor: crosshair;
+          margin-inline: auto;
         }
 
         .scratch-revealed-layer {
@@ -297,9 +286,18 @@ export default function ScratchCountdown() {
           user-select: none;
         }
 
+        .scratch-revealed-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          transform: translateY(-6%);
+        }
+
         .lotus-sacred-icon {
           font-size: 2.2rem;
-          margin-bottom: 0.2rem;
+          margin-bottom: 0.1rem;
           filter: drop-shadow(0 2px 6px rgba(197, 154, 69, 0.4));
         }
 
@@ -474,8 +472,14 @@ export default function ScratchCountdown() {
 
         @media (max-width: 480px) {
           .scratch-heart-container {
-            width: 270px;
-            height: 255px;
+            width: min(320px, 88vw);
+            height: min(300px, 82vw);
+          }
+          .scratch-revealed-layer {
+            padding: 1rem 1.2rem;
+          }
+          .scratch-revealed-content {
+            transform: translateY(-10%);
           }
           .revealed-main-date {
             font-size: 1.45rem;
