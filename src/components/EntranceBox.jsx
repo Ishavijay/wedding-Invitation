@@ -1,41 +1,51 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Volume2, Sparkles, ChevronRight } from 'lucide-react';
 
 export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
   const [isPlayingVideo, setIsPlayingVideo] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const videoRef = useRef(null);
+  const timerRef = useRef(null);
+
+  // Clean up timers on unmount
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
 
   const handleTapToOpen = () => {
+    if (hasStarted) return;
     setHasStarted(true);
     setIsPlayingVideo(true);
 
-    // Try starting audio
+    // Start background wedding music
     if (!isMusicPlaying && toggleMusic) {
       toggleMusic(true);
     }
 
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
-      const promise = videoRef.current.play();
-      if (promise !== undefined) {
-        promise.catch((err) => {
-          console.warn('Autoplay restricted:', err);
-          // Fallback after brief animation
-          setTimeout(onEnter, 1500);
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          console.warn('Direct unmuted play blocked, trying muted video:', err);
+          if (videoRef.current) {
+            videoRef.current.muted = true;
+            videoRef.current.play().catch(e => console.warn('Muted play also failed:', e));
+          }
         });
       }
-    } else {
-      setTimeout(onEnter, 1800);
     }
 
-    // Safety timeout in case video doesn't emit ended
-    setTimeout(() => {
+    // Safety fallback: video is 3.8s, enter after 4.1s if onEnded hasn't fired
+    timerRef.current = setTimeout(() => {
       onEnter();
-    }, 4500);
+    }, 4100);
   };
 
   const handleVideoEnded = () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
     onEnter();
   };
 
@@ -51,31 +61,31 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
         </div>
 
         {/* The Invitation Box / Video Display */}
-        <div className="entrance-media-frame">
-          {!isPlayingVideo ? (
-            <div className="entrance-front-wrapper" onClick={handleTapToOpen}>
-              <img
-                src="/assets/Entrance_Box_Front.webp"
-                alt="Royal Wedding Box Cover"
-                className="entrance-front-cover"
-              />
-              <div className="entrance-seal-badge">
-                <span className="seal-monogram">R & S</span>
-                <span className="seal-text">Tap to Open</span>
-              </div>
+        <div className="entrance-media-frame" onClick={handleTapToOpen}>
+          {/* Static Front Cover - shown before tap */}
+          <div className={`entrance-front-wrapper ${isPlayingVideo ? 'is-faded' : ''}`}>
+            <img
+              src="/assets/Entrance_Box_Front.webp"
+              alt="Royal Wedding Box Cover"
+              className="entrance-front-cover"
+            />
+            <div className="entrance-seal-badge">
+              <span className="seal-monogram">R & S</span>
+              <span className="seal-text">Tap to Open</span>
             </div>
-          ) : (
-            <video
-              ref={videoRef}
-              className="entrance-video-player"
-              playsInline
-              preload="auto"
-              poster="/assets/Entrance_Box_Front.webp"
-              onEnded={handleVideoEnded}
-            >
-              <source src="/assets/Entrance%20Box%20Video.mp4" type="video/mp4" />
-            </video>
-          )}
+          </div>
+
+          {/* Opening Animation Video */}
+          <video
+            ref={videoRef}
+            className={`entrance-video-player ${isPlayingVideo ? 'is-visible' : 'is-hidden'}`}
+            playsInline
+            preload="auto"
+            poster="/assets/Entrance_Box_Front.webp"
+            onEnded={handleVideoEnded}
+          >
+            <source src="/assets/Entrance%20Box%20Video.mp4" type="video/mp4" />
+          </video>
         </div>
 
         {/* Tap Button & Action Area */}
@@ -111,8 +121,10 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
           </div>
         ) : (
           <div className="entrance-opening-loader">
-            <div className="entrance-spinner"></div>
-            <p className="opening-text">Opening Royal Invitation...</p>
+            <div className="entrance-progress-bar-track">
+              <div className="entrance-progress-bar-fill"></div>
+            </div>
+            <p className="opening-text">Unfolding Royal Invitation...</p>
           </div>
         )}
       </div>
@@ -144,12 +156,12 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
           position: relative;
           z-index: 2;
           width: 100%;
-          max-width: 420px;
-          background: rgba(45, 20, 24, 0.88);
+          max-width: 400px;
+          background: rgba(45, 20, 24, 0.92);
           backdrop-filter: blur(16px);
           border: 1.5px solid rgba(197, 154, 69, 0.45);
-          border-radius: 28px;
-          padding: 1.8rem 1.6rem;
+          border-radius: 26px;
+          padding: 1.6rem 1.4rem;
           box-shadow: 0 25px 65px rgba(0, 0, 0, 0.65), 0 0 40px rgba(197, 154, 69, 0.2);
           text-align: center;
           display: flex;
@@ -162,14 +174,14 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
           display: flex;
           flex-direction: column;
           align-items: center;
-          margin-bottom: 1.2rem;
+          margin-bottom: 1rem;
         }
 
         .entrance-ganesh-icon {
           width: 40px;
           height: auto;
           filter: drop-shadow(0 2px 8px rgba(197, 154, 69, 0.6));
-          margin-bottom: 0.4rem;
+          margin-bottom: 0.35rem;
         }
 
         .entrance-shloka {
@@ -177,36 +189,42 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
           color: var(--royal-gold-light);
           font-size: 0.95rem;
           letter-spacing: 0.08em;
+          text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
         }
 
         .entrance-media-frame {
-          width: 100%;
-          max-width: 300px;
-          aspect-ratio: 3 / 4;
-          border-radius: 20px;
+          width: auto;
+          height: min(48vh, 400px);
+          aspect-ratio: 9 / 16;
+          border-radius: 18px;
           overflow: hidden;
           position: relative;
           border: 2px solid var(--royal-gold);
-          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55), 0 0 25px rgba(197, 154, 69, 0.25);
           background: #000;
           cursor: pointer;
+          margin: 0 auto;
         }
 
         .entrance-front-wrapper {
+          position: absolute;
+          inset: 0;
           width: 100%;
           height: 100%;
-          position: relative;
-          transition: transform 0.4s ease;
+          transition: opacity 0.4s ease;
+          z-index: 2;
         }
 
-        .entrance-front-wrapper:hover {
-          transform: scale(1.02);
+        .entrance-front-wrapper.is-faded {
+          opacity: 0;
+          pointer-events: none;
         }
 
         .entrance-front-cover {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          display: block;
         }
 
         .entrance-seal-badge {
@@ -215,28 +233,28 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
           left: 50%;
           transform: translate(-50%, -50%);
           background: radial-gradient(circle, #ECC874 0%, #C59A45 70%, #8C6828 100%);
-          width: 90px;
-          height: 90px;
+          width: 82px;
+          height: 82px;
           border-radius: 50%;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          border: 3px solid #FFF3B0;
+          border: 2.5px solid #FFF3B0;
           box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 20px rgba(236, 200, 116, 0.5);
           animation: pulseGlow 2.4s infinite ease-in-out;
         }
 
         .seal-monogram {
           font-family: var(--font-royal);
-          font-size: 1rem;
+          font-size: 0.95rem;
           color: #4F0E1A;
           font-weight: 700;
           line-height: 1.1;
         }
 
         .seal-text {
-          font-size: 0.65rem;
+          font-size: 0.62rem;
           text-transform: uppercase;
           letter-spacing: 0.12em;
           color: #4F0E1A;
@@ -248,20 +266,32 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          display: block;
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+        }
+
+        .entrance-video-player.is-hidden {
+          opacity: 0;
+        }
+
+        .entrance-video-player.is-visible {
+          opacity: 1;
         }
 
         .entrance-action-center {
-          margin-top: 1.2rem;
+          margin-top: 1rem;
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 0.75rem;
+          gap: 0.65rem;
         }
 
         .entrance-interactive-tap {
           position: relative;
-          width: 68px;
-          height: 68px;
+          width: 62px;
+          height: 62px;
           border: none;
           background: transparent;
           cursor: pointer;
@@ -283,8 +313,8 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
         }
 
         .tap-core-circle {
-          width: 54px;
-          height: 54px;
+          width: 48px;
+          height: 48px;
           border-radius: 50%;
           background: var(--royal-gold-gradient);
           display: flex;
@@ -295,7 +325,7 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
         }
 
         .tap-hand-emoji {
-          font-size: 1.5rem;
+          font-size: 1.35rem;
         }
 
         .entrance-interactive-tap:hover .tap-core-circle {
@@ -305,13 +335,14 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
         .entrance-pill-prompt {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
+          justify-content: center;
+          gap: 0.45rem;
           background: rgba(197, 154, 69, 0.15);
           border: 1px solid rgba(197, 154, 69, 0.4);
-          padding: 0.5rem 1.2rem;
+          padding: 0.45rem 1.1rem;
           border-radius: 50px;
           color: #FFF3B0;
-          font-size: 0.85rem;
+          font-size: 0.82rem;
           font-weight: 500;
           letter-spacing: 0.03em;
         }
@@ -320,13 +351,13 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
           background: none;
           border: none;
           color: rgba(246, 226, 163, 0.65);
-          font-size: 0.82rem;
+          font-size: 0.8rem;
           cursor: pointer;
           display: inline-flex;
           align-items: center;
           gap: 0.25rem;
           transition: color 0.2s ease;
-          padding: 0.25rem 0.5rem;
+          padding: 0.2rem 0.5rem;
         }
 
         .entrance-skip-btn:hover {
@@ -338,23 +369,36 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 0.8rem;
+          gap: 0.6rem;
+          width: 100%;
+          max-width: 260px;
         }
 
-        .entrance-spinner {
-          width: 38px;
-          height: 38px;
-          border: 3px solid rgba(197, 154, 69, 0.2);
-          border-top-color: var(--royal-gold);
-          border-radius: 50%;
-          animation: spinSlow 0.9s linear infinite;
+        .entrance-progress-bar-track {
+          width: 100%;
+          height: 4px;
+          border-radius: 4px;
+          background: rgba(197, 154, 69, 0.25);
+          overflow: hidden;
+        }
+
+        .entrance-progress-bar-fill {
+          height: 100%;
+          width: 0%;
+          background: var(--royal-gold-gradient);
+          animation: progressFill 3.8s ease-in-out forwards;
         }
 
         .opening-text {
           color: var(--royal-gold-light);
-          font-size: 0.9rem;
+          font-size: 0.88rem;
           font-family: var(--font-serif);
-          letter-spacing: 0.05em;
+          letter-spacing: 0.06em;
+        }
+
+        @keyframes progressFill {
+          0% { width: 0%; }
+          100% { width: 100%; }
         }
 
         @keyframes rippleEffect {

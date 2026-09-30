@@ -167,6 +167,41 @@ h1, h2, h3, h4, .serif-title {
   font-weight: 400;
 }
 
+/* Shared Scroll Cue Alignment */
+.section-scroll-cue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.2rem;
+  width: 100%;
+}
+
+.section-scroll-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--royal-muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.45rem 1.15rem;
+  border-radius: 50px;
+  border: 1px solid rgba(197, 154, 69, 0.3);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(6px);
+  transition: var(--transition-smooth);
+}
+
+.section-scroll-indicator:hover {
+  color: var(--royal-maroon-dark);
+  border-color: var(--royal-gold);
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(2px);
+}
+
 /* Royal Ornaments & Dividers */
 .royal-mandala-divider {
   display: flex;

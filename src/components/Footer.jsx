@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="container container-narrow">
         {/* Monogram Crest */}
         <div className="footer-monogram-circle">
-          <span className="footer-monogram">A &amp; A</span>
+          <span className="footer-monogram">R &amp; S</span>
         </div>
 
         {/* Romantic Marriage Quote */}
@@ -21,12 +21,12 @@ export default function Footer() {
 
         {/* Auspicious Date & Place */}
         <div className="footer-date-tag">
-          <span>DECEMBER 11, 2026 • THE OBEROI JAIPUR, RAJASTHAN</span>
+          <span>DECEMBER 11, 2026 • GULAB BAGH AND HOTEL MANSAROVAR, JAIPUR, RAJASTHAN</span>
         </div>
 
         {/* Warm Note */}
         <p className="footer-blessing-note">
-          We eagerly await your gracious presence and heartfelt blessings to complete our celebrations in the City of Lakes.
+          We eagerly await your gracious presence and heartfelt blessings to complete our celebrations in the Pink City.
         </p>
 
         {/* Back to Top */}

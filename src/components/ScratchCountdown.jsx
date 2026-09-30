@@ -140,7 +140,7 @@ export default function ScratchCountdown() {
 
   // Google Calendar Link generator
   const googleCalUrl =
-    "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Royal+Wedding+-+Sameep+Vijay+%26+Rakshita+Vijay&dates=20261211T113000Z/20261211T183000Z&details=Royal+Wedding+Celebration+of+Sameep+Vijay+and+Rakshita+Vijay+at+The+Oberoi+Jaipur,+Rajasthan.&location=The+Oberoi+Jaipur,+Rajasthan";
+    "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Royal+Wedding+-+Sameep+Vijay+%26+Rakshita+Vijay&dates=20261211T113000Z/20261211T183000Z&details=Royal+Wedding+Celebration+of+Sameep+Vijay+and+Rakshita+Vijay+at+Gulab+Bagh+and+Hotel+Mansarovar,+Jaipur,+Rajasthan.&location=Gulab+Bagh+and+Hotel+Mansarovar,+Jaipur,+Rajasthan";
 
   return (
     <section className="section-padding bg-palace-pattern" id="countdown">
@@ -171,7 +171,7 @@ export default function ScratchCountdown() {
               <span className="lotus-sacred-icon" aria-hidden="true">🪷</span>
               <p className="revealed-save-date">Save The Date</p>
               <h3 className="revealed-main-date">December 11, 2026</h3>
-              <p className="revealed-venue-title">The Oberoi Jaipur • Jaipur</p>
+              <p className="revealed-venue-title">Gulab Bagh and Hotel Mansarovar • Jaipur</p>
               <div className="revealed-badge-pill">
                 <CheckCircle2 size={14} className="revealed-check" />
                 <span>Date Revealed</span>

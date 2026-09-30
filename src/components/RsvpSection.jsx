@@ -9,7 +9,7 @@ export default function RsvpSection({ onOpenPass }) {
     attending: 'Yes',
     guests: '2',
     diet: 'Vegetarian',
-    events: ['Haldi', 'Sangeet', 'Wedding', 'Reception'],
+    events: ['Mehandi', 'Haldi', 'Sangeet', 'ChaakBhaat', 'Wedding'],
     message: ''
   });
 
@@ -158,10 +158,11 @@ export default function RsvpSection({ onOpenPass }) {
                     <label className="form-label">Events You Plan to Attend</label>
                     <div className="event-selection-grid">
                       {[
-                        { id: 'Haldi', label: 'Mehndi Utsav (Dec 13)' },
-                        { id: 'Sangeet', label: 'Ring Ceremony & Sangeet (Dec 13)' },
-                        { id: 'Wedding', label: 'The Sacred Saath Phere (Dec 14)' },
-                        { id: 'Reception', label: 'The Grand Reception (Dec 14)' }
+                        { id: 'Mehandi', label: 'Mehandi Ceremony (Day 1)' },
+                        { id: 'Haldi', label: 'Haldi Ceremony (Day 2)' },
+                        { id: 'Sangeet', label: 'Ring Ceremony & Sangeet (Day 2)' },
+                        { id: 'ChaakBhaat', label: 'Chaak Bhaat (Day 3)' },
+                        { id: 'Wedding', label: 'The Sacred Saath Phere (Day 3)' }
                       ].map(item => (
                         <label key={item.id} className="event-check-box">
                           <input
@@ -227,13 +228,13 @@ export default function RsvpSection({ onOpenPass }) {
                     </div>
                     <div className="summary-line">
                       <span className="summary-label">Venue:</span>
-                      <span className="summary-val">The Oberoi Jaipur, Rajasthan</span>
+                      <span className="summary-val">Gulab Bagh and Hotel Mansarovar, Jaipur, Rajasthan</span>
                     </div>
                   </>
                 )}
                 <div className="summary-line">
                   <span className="summary-label">Dates:</span>
-                  <span className="summary-val">December 13–14, 2026</span>
+                  <span className="summary-val">December 9–11, 2026</span>
                 </div>
               </div>
 

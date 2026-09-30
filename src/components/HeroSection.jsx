@@ -47,7 +47,7 @@ export default function HeroSection() {
         </h1>
 
         <p className="hero-event-pill">
-          December 11, 2026 • Gulabh Bagh and hotel, Mansarovar, Jaipur, Rajasthan
+          December 11, 2026 • Gulab Bagh and Hotel Mansarovar, Jaipur, Rajasthan
         </p>
 
         {/* Couple Portrait Cutout Anchor */}

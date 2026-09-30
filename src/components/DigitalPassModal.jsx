@@ -31,10 +31,10 @@ export default function DigitalPassModal({ guestData, onClose }) {
 
         {/* Pass Header */}
         <div className="pass-body">
-          <div className="pass-monogram">A &amp; A</div>
+          <div className="pass-monogram">R &amp; S</div>
           <h2 className="pass-couple-title">Sameep Vijay &amp; Rakshita Vijay</h2>
-          <p className="pass-subtitle">Gulab Bagh and hotel, Mansarovar, Jaipur</p>
-          <p className="pass-dates">December 11 &amp; 14, 2026</p>
+          <p className="pass-subtitle">Gulab Bagh and Hotel Mansarovar, Jaipur</p>
+          <p className="pass-dates">December 9 – 11, 2026</p>
 
           <div className="pass-divider-cutout">
             <span className="cutout-circle-left"></span>
@@ -78,7 +78,7 @@ export default function DigitalPassModal({ guestData, onClose }) {
                 <path d="M20 18h2v4h-2z" fill="#4F0E1A" />
               </svg>
             </div>
-            <p className="qr-scan-note">Present this pass at the Udaivilas arrival gate</p>
+            <p className="qr-scan-note">Present this pass at the Gulab Bagh and Hotel Mansarovar arrival gate</p>
           </div>
         </div>
 

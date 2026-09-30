@@ -16,7 +16,7 @@ export default function WeddingEvents() {
           <p className="section-eyebrow">Celebration Itinerary</p>
           <h2 className="section-title">The Wedding Celebrations</h2>
           <p className="section-subtitle">
-            Four magnificent gatherings of music, sacred Vedic rites, dance, and joyous festivities in Jaipur.
+            Five magnificent gatherings of music, sacred Vedic rites, dance, and joyous festivities in Jaipur across three auspicious days.
           </p>
         </div>
 
@@ -27,21 +27,28 @@ export default function WeddingEvents() {
             className={`filter-tab-pill ${activeDayFilter === 'all' ? 'is-active' : ''}`}
             onClick={() => setActiveDayFilter('all')}
           >
-            All Celebrations (4)
+            All Celebrations ({weddingEvents.length})
           </button>
           <button
             type="button"
             className={`filter-tab-pill ${activeDayFilter === 'Day 1' ? 'is-active' : ''}`}
             onClick={() => setActiveDayFilter('Day 1')}
           >
-            Day 1: Dec 13 (Mehndi &amp; Sangeet)
+            Day 1: Mehandi
           </button>
           <button
             type="button"
             className={`filter-tab-pill ${activeDayFilter === 'Day 2' ? 'is-active' : ''}`}
             onClick={() => setActiveDayFilter('Day 2')}
           >
-            Day 2: Dec 14 (Vows &amp; Reception)
+            Day 2: Haldi &amp; Sangeet
+          </button>
+          <button
+            type="button"
+            className={`filter-tab-pill ${activeDayFilter === 'Day 3' ? 'is-active' : ''}`}
+            onClick={() => setActiveDayFilter('Day 3')}
+          >
+            Day 3: Chaak Bhaat &amp; Wedding
           </button>
         </div>
 
@@ -245,18 +252,23 @@ export default function WeddingEvents() {
           border-bottom-right-radius: 14px;
           overflow: hidden;
           border: 2.5px solid var(--royal-gold);
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+          background: radial-gradient(circle, #FFFDF8 45%, #F4EADA 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .chapter-thumb-img {
           width: 100%;
           height: 100%;
-          object-fit: cover;
+          object-fit: contain;
+          padding: 10px;
           transition: transform 0.5s ease;
         }
 
         .storybook-chapter-card:hover .chapter-thumb-img {
-          transform: scale(1.08);
+          transform: scale(1.05);
         }
 
         .chapter-meta-tag-row {
@@ -512,6 +524,20 @@ export default function WeddingEvents() {
             display: flex;
             flex-direction: column;
             align-items: center;
+          }
+          .chapter-meta-tag-row {
+            justify-content: center;
+          }
+          .chapter-venue-info {
+            justify-content: center;
+          }
+          .chapter-attire-box {
+            margin-left: auto;
+            margin-right: auto;
+          }
+          .sub-events-grid {
+            text-align: left;
+            width: 100%;
           }
           .chapter-actions-cluster {
             justify-content: center;
