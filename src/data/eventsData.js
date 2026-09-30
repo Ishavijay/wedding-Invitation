@@ -40,7 +40,7 @@ export const weddingEvents = [
     subEvents: [
       {
         icon: "💍",
-        title: "Ring Ceremony",
+        title: "Engagement",
         time: "6:00 PM",
         description: "Sacred exchange of rings surrounded by family blessings, floral décor, and heartfelt vows of togetherness."
       },
