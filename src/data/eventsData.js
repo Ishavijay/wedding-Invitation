@@ -41,13 +41,13 @@ export const weddingEvents = [
       {
         icon: "💍",
         title: "Engagement",
-        time: "6:00 PM",
+        time: "2:00 PM",
         description: "Sacred exchange of rings surrounded by family blessings, floral décor, and heartfelt vows of togetherness."
       },
       {
         icon: "🎶",
         title: "Sangeet Night",
-        time: "7:30 PM onwards",
+        time: "6:00 PM onwards",
         description: "An electrifying evening of choreographed family performances, dazzling fairy lights, dhol beats, and musical symphony."
       }
     ]
