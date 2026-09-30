@@ -50,7 +50,7 @@ export const weddingEvents = [
     venue: "The Oberoi Udaivilas",
     city: "Jaipur, Rajasthan",
     description: "A joyous pre-wedding ritual where family and loved ones come together to celebrate with traditional folk songs, laughter, and heartfelt blessings.",
-    image: "/assets/Wedding events/Rasm-e-Heena2.webp"
+    image: "/assets/Wedding events/Rasm-e-Heena2.png"
   },
   {
     id: "wedding",
