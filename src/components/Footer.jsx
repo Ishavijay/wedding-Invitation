@@ -42,7 +42,7 @@ export default function Footer() {
 
         {/* Copyright & Credits */}
         <div className="footer-credits-line">
-          <span>With boundless love, <strong>Sameep Vijay &amp; Rakshita Vijay</strong></span>
+          <span>With boundless love, <strong>Rakshita Vijay &amp; Sameep Vijay</strong></span>
         </div>
       </div>
 
