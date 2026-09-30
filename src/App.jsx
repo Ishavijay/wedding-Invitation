@@ -9,19 +9,19 @@ import FormalInvitation from './components/FormalInvitation';
 import MeetTheCouple from './components/MeetTheCouple';
 import LoveStory from './components/LoveStory';
 import WeddingEvents from './components/WeddingEvents';
-import VenueModal from './components/VenueModal';
-import RoyalGallery from './components/RoyalGallery';
-import LightboxModal from './components/LightboxModal';
+// import VenueModal from './components/VenueModal';
+// import RoyalGallery from './components/RoyalGallery';
+// import LightboxModal from './components/LightboxModal';
 import RsvpSection from './components/RsvpSection';
 import DigitalPassModal from './components/DigitalPassModal';
 import Footer from './components/Footer';
-import { galleryPhotos } from './data/galleryData';
+// import { galleryPhotos } from './data/galleryData';
 
 export default function App() {
   const [hasEntered, setHasEntered] = useState(false);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
-  const [selectedVenueEvent, setSelectedVenueEvent] = useState(null);
-  const [lightboxData, setLightboxData] = useState(null);
+  // const [selectedVenueEvent, setSelectedVenueEvent] = useState(null);
+  // const [lightboxData, setLightboxData] = useState(null);
   const [passGuest, setPassGuest] = useState(null);
 
   const audioRef = useRef(null);
@@ -49,16 +49,16 @@ export default function App() {
   };
 
   // Lightbox navigation
-  const handleLightboxNavigate = (direction) => {
-    if (!lightboxData) return;
-    const total = galleryPhotos.length;
-    let nextIndex = (lightboxData.index + direction) % total;
-    if (nextIndex < 0) nextIndex = total - 1;
-    setLightboxData({
-      photo: galleryPhotos[nextIndex],
-      index: nextIndex
-    });
-  };
+  // const handleLightboxNavigate = (direction) => {
+  //   if (!lightboxData) return;
+  //   const total = galleryPhotos.length;
+  //   let nextIndex = (lightboxData.index + direction) % total;
+  //   if (nextIndex < 0) nextIndex = total - 1;
+  //   setLightboxData({
+  //     photo: galleryPhotos[nextIndex],
+  //     index: nextIndex
+  //   });
+  // };
 
   return (
     <div className="royal-wedding-app">
@@ -107,14 +107,12 @@ export default function App() {
       <LoveStory />
 
       {/* 6. Wedding Events & Itinerary */}
-      <WeddingEvents
-        onOpenVenue={(event) => setSelectedVenueEvent(event)}
-      />
+      <WeddingEvents />
 
-      {/* 7. Palace Jharokha Photo Gallery */}
-      <RoyalGallery
+      {/* 7. Palace Jharokha Photo Gallery - Visual Diary (commented out) */}
+      {/* <RoyalGallery
         onOpenLightbox={(photo, index) => setLightboxData({ photo, index })}
-      />
+      /> */}
 
       {/* 8. Luxury RSVP & Attendance Confirmation */}
       {/* <RsvpSection onOpenPass={(guest) => setPassGuest(guest)} /> */}
@@ -122,24 +120,17 @@ export default function App() {
       {/* 9. Royal Monogram Footer */}
       <Footer />
 
-      {/* MODALS */}
-      {/* Venue Location Map Modal */}
-      {selectedVenueEvent && (
-        <VenueModal
-          event={selectedVenueEvent}
-          onClose={() => setSelectedVenueEvent(null)}
-        />
-      )}
+      {/* Venue Location Map Modal (removed) */}
 
-      {/* Photo Lightbox Modal */}
-      {lightboxData && (
+      {/* Photo Lightbox Modal (commented out with Visual Diary) */}
+      {/* {lightboxData && (
         <LightboxModal
           photo={lightboxData.photo}
           index={lightboxData.index}
           onClose={() => setLightboxData(null)}
           onNavigate={handleLightboxNavigate}
         />
-      )}
+      )} */}
 
       {/* Digital VIP Entry Pass Modal */}
       {passGuest && (

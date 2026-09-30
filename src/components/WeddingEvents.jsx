@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { MapPin, Calendar, Clock, Sparkles, ChevronDown } from 'lucide-react';
+import { Clock, Sparkles, ChevronDown, MapPin } from 'lucide-react';
 import { weddingEvents } from '../data/eventsData';
 
-export default function WeddingEvents({ onOpenVenue }) {
+export default function WeddingEvents() {
   const [activeDayFilter, setActiveDayFilter] = useState('all');
 
   const filteredEvents = activeDayFilter === 'all'
@@ -128,27 +128,7 @@ export default function WeddingEvents({ onOpenVenue }) {
                       </div>
                     )}
 
-                    {/* Action Buttons */}
-                    <div className="chapter-actions-cluster">
-                      <button
-                        type="button"
-                        className="chapter-btn-venue"
-                        onClick={() => onOpenVenue(evt)}
-                      >
-                        <MapPin size={14} />
-                        <span>View Venue Map</span>
-                      </button>
 
-                      <a
-                        href={evt.calendarUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="chapter-btn-cal"
-                      >
-                        <Calendar size={14} />
-                        <span>Add to Calendar</span>
-                      </a>
-                    </div>
                   </div>
                 </div>
               </article>
@@ -165,13 +145,13 @@ export default function WeddingEvents({ onOpenVenue }) {
           ))}
         </div>
 
-        {/* Scroll Cue */}
-        <div className="section-scroll-cue">
+        {/* Scroll Cue (commented out — Our Visual Diary section is hidden) */}
+        {/* <div className="section-scroll-cue">
           <a href="#gallery" className="section-scroll-indicator">
             <span>Our Visual Diary</span>
             <ChevronDown size={14} />
           </a>
-        </div>
+        </div> */}
       </div>
 
       <style>{`

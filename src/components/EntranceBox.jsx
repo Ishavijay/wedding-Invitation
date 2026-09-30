@@ -60,7 +60,7 @@ export default function EntranceBox({ onEnter, isMusicPlaying, toggleMusic }) {
                 className="entrance-front-cover"
               />
               <div className="entrance-seal-badge">
-                <span className="seal-monogram">A & A</span>
+                <span className="seal-monogram">R & S</span>
                 <span className="seal-text">Tap to Open</span>
               </div>
             </div>

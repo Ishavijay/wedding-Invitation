@@ -21,7 +21,7 @@ export default function Navigation() {
     { label: "Couple", href: "#couple" },
     { label: "Our Story", href: "#story" },
     { label: "Events", href: "#events" },
-    { label: "Gallery", href: "#gallery" },
+    // { label: "Gallery", href: "#gallery" },
     // { label: "RSVP", href: "#rsvp" }
   ];
 
@@ -30,7 +30,7 @@ export default function Navigation() {
       <div className="nav-inner-container">
         {/* Monogram Brand */}
         <a href="#hero" className="nav-monogram-brand">
-          <span className="brand-monogram">A & A</span>
+          <span className="brand-monogram">R & S</span>
           <span className="brand-sub">December 11, 2026</span>
         </a>
 
