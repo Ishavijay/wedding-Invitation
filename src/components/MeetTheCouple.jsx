@@ -26,7 +26,7 @@ export default function MeetTheCouple() {
             </div>
             <h3 className="couple-name">Rakshita Vijay</h3>
             <p className="couple-bio">
-              An architect with an abiding passion for classical Kathak dance, weaving elegance, warm empathy, and joyous laughter into every room she enters.
+              A Chartered Accountant, thoughtful by nature, with perfection in mind, practical yet quietly emotional — someone who finds joy in dance, meaningful conversations, little things, and the people closest to her.
             </p>
           </div>
 
@@ -50,7 +50,7 @@ export default function MeetTheCouple() {
             </div>
             <h3 className="couple-name">Sameep Vijay</h3>
             <p className="couple-bio">
-              A visionary tech entrepreneur and avid Himalayan mountain trekker, celebrated for his calm wisdom, heartfelt loyalty, and infectious sense of humor.
+              A Chartered Accountant with an ambitious spirit and a practical mind, a generous soul who finds joy in giving, and a family man who holds his loved ones close.
             </p>
           </div>
         </div>
