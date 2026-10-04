@@ -80,7 +80,7 @@ export const weddingEvents = [
     city: "Jaipur, Rajasthan",
     description: "The auspicious royal Baraat procession followed by sacred Vedic mantras around the holy fire as twilight paints the sky.",
     image: "/assets/Wedding events/Wedding Ceremony.webp",
-    attire: "Indo-Western",
+    attire: "Indo-Western for Men & Traditional for Women",
     attireHex: ["#731A2A", "#C59A45", "#F7E5A9"]
   }
 ];

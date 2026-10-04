@@ -75,14 +75,6 @@ export default function Navigation() {
               {link.label}
             </a>
           ))}
-          <a
-            href="#rsvp"
-            className="mobile-drawer-rsvp-btn btn-royal-gold"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            <Heart size={16} fill="currentColor" />
-            <span>Confirm Attendance</span>
-          </a>
         </div>
       </div>
 
