@@ -23,7 +23,9 @@ export const weddingEvents = [
     venue: "Gulab Bagh and Hotel Mansarovar, Jaipur, Rajasthan",
     city: "Jaipur, Rajasthan",
     description: "An auspicious morning bathed in golden turmeric blessings, fragrant floral showers, and joyful songs with family.",
-    image: "/assets/Wedding events/Rasm-e-Heena.png"
+    image: "/assets/Wedding events/Rasm-e-Heena.png",
+    attire: "Peach Color / Pastel",
+    attireHex: ["#FFDAB9", "#F7C59F", "#FBE7C6"]
   },
   {
     id: "sangeet",
@@ -36,6 +38,8 @@ export const weddingEvents = [
     city: "Jaipur, Rajasthan",
     description: "An enchanting evening of ring exchange, energetic choreographed family performances, dazzling fairy lights, and musical symphony.",
     image: "/assets/Wedding events/Mangni.webp",
+    attire: "Suit / Tuxedo for Men & Indo-Western for Women",
+    attireHex: ["#1F2937", "#C59A45", "#731A2A"],
     subEvents: [
       {
         icon: "💍",
@@ -75,6 +79,8 @@ export const weddingEvents = [
     venue: "Gulab Bagh and Hotel Mansarovar, Jaipur, Rajasthan",
     city: "Jaipur, Rajasthan",
     description: "The auspicious royal Baraat procession followed by sacred Vedic mantras around the holy fire as twilight paints the sky.",
-    image: "/assets/Wedding events/Wedding Ceremony.webp"
+    image: "/assets/Wedding events/Wedding Ceremony.webp",
+    attire: "Indo-Western",
+    attireHex: ["#731A2A", "#C59A45", "#F7E5A9"]
   }
 ];
