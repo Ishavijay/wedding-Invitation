@@ -46,10 +46,6 @@ export default function HeroSection() {
           <span>Sameep Vijay</span>
         </h1>
 
-        <p className="hero-event-pill">
-          December 11, 2026 • Gulab Bagh and Hotel, Mansarovar, Jaipur, Rajasthan
-        </p>
-
         {/* Couple Portrait Cutout Anchor */}
         <div className="hero-couple-cutout-frame">
           <img
@@ -173,20 +169,6 @@ export default function HeroSection() {
           font-size: 1.1em;
           display: inline-block;
           filter: drop-shadow(0 2px 10px rgba(236, 200, 116, 0.6));
-        }
-
-        .hero-event-pill {
-          background: rgba(255, 255, 255, 0.12);
-          backdrop-filter: blur(8px);
-          border: 1px solid rgba(236, 200, 116, 0.4);
-          color: #FFF8ED;
-          padding: 0.45rem 1.4rem;
-          border-radius: 50px;
-          font-size: clamp(0.8rem, 1.8vw, 0.95rem);
-          letter-spacing: 0.06em;
-          font-weight: 500;
-          box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-          margin-bottom: 1.8rem;
         }
 
         .hero-couple-cutout-frame {

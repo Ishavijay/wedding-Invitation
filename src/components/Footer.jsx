@@ -42,7 +42,8 @@ export default function Footer() {
 
         {/* Copyright & Credits */}
         <div className="footer-credits-line">
-          <span>With boundless love, <strong>Rakshita Vijay &amp; Sameep Vijay</strong></span>
+          <span>With boundless love,</span>
+          <strong>Rakshita Vijay &amp; Sameep Vijay</strong>
         </div>
       </div>
 
@@ -132,6 +133,7 @@ export default function Footer() {
 
         .footer-credits-line strong {
           color: #FFF3B0;
+          display: block;
         }
       `}</style>
     </footer>

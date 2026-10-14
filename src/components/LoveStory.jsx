@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, ChevronDown, Sparkles, Heart } from 'lucide-react';
 import { storyMilestones } from '../data/storyData';
 
 export default function LoveStory() {
   const [activeStep, setActiveStep] = useState(0);
+  const touchStartX = useRef(null);
 
   const current = storyMilestones[activeStep];
   const progressPercent = (activeStep / (storyMilestones.length - 1)) * 100;
@@ -64,7 +65,17 @@ export default function LoveStory() {
         </div>
 
         {/* Active Chapter Card */}
-        <div className="story-card-wrapper">
+        <div
+          className="story-card-wrapper"
+          onTouchStart={(event) => { touchStartX.current = event.touches[0].clientX; }}
+          onTouchEnd={(event) => {
+            if (touchStartX.current === null) return;
+            const swipeDistance = event.changedTouches[0].clientX - touchStartX.current;
+            if (swipeDistance > 50) handlePrev();
+            if (swipeDistance < -50) handleNext();
+            touchStartX.current = null;
+          }}
+        >
           <button
             type="button"
             className="story-nav-chevron chevron-prev"
@@ -108,6 +119,16 @@ export default function LoveStory() {
             aria-label="Next story chapter"
           >
             <ChevronRight size={22} />
+          </button>
+        </div>
+
+        <div className="story-mobile-controls" aria-label="Story chapter navigation">
+          <button type="button" onClick={handlePrev} disabled={activeStep === 0}>
+            <ChevronLeft size={18} /> Previous
+          </button>
+          <span>Chapter {activeStep + 1} of {storyMilestones.length}</span>
+          <button type="button" onClick={handleNext} disabled={activeStep === storyMilestones.length - 1}>
+            Next <ChevronRight size={18} />
           </button>
         </div>
 
@@ -354,6 +375,10 @@ export default function LoveStory() {
           margin-top: 2rem;
         }
 
+        .story-mobile-controls {
+          display: none;
+        }
+
         .story-dot {
           width: 10px;
           height: 10px;
@@ -383,6 +408,31 @@ export default function LoveStory() {
           }
           .story-nav-chevron {
             display: none;
+          }
+          .story-mobile-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin: 1rem auto 0;
+            max-width: 360px;
+            color: var(--royal-muted);
+            font-size: 0.8rem;
+          }
+          .story-mobile-controls button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.55rem 0.75rem;
+            border: 1px solid rgba(197, 154, 69, 0.5);
+            border-radius: 999px;
+            background: #FFF9F0;
+            color: var(--royal-maroon);
+            font: inherit;
+            font-weight: 600;
+          }
+          .story-mobile-controls button:disabled {
+            opacity: 0.4;
           }
         }
       `}</style>

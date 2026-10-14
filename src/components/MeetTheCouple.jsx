@@ -18,7 +18,7 @@ export default function MeetTheCouple() {
           <div className="couple-profile-card">
             <div className="portrait-jharokha-frame">
               <img
-                src="/assets/Bride.webp"
+                src="/assets/Bride-portrait.jpg"
                 alt="Rakshita Vijay - The Bride"
                 className="portrait-arch-photo"
               />
@@ -42,7 +42,7 @@ export default function MeetTheCouple() {
           <div className="couple-profile-card">
             <div className="portrait-jharokha-frame">
               <img
-                src="/assets/Groom.webp"
+                src="/assets/Groom-portrait.jpg"
                 alt="Sameep Vijay - The Groom"
                 className="portrait-arch-photo"
               />
