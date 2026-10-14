@@ -92,11 +92,11 @@ export default function MeetTheCouple() {
         }
 
         .portrait-jharokha-frame {
-          width: 220px;
-          height: 270px;
+          width: min(100%, 260px);
+          height: 320px;
           margin: 0 auto 1.8rem;
-          border-top-left-radius: 110px;
-          border-top-right-radius: 110px;
+          border-top-left-radius: 130px;
+          border-top-right-radius: 130px;
           border-bottom-left-radius: 16px;
           border-bottom-right-radius: 16px;
           overflow: hidden;
