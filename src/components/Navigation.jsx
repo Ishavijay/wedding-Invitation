@@ -31,7 +31,6 @@ export default function Navigation() {
         {/* Monogram Brand */}
         <a href="#hero" className="nav-monogram-brand">
           <span className="brand-monogram">R & S</span>
-          <span className="brand-sub">December 11, 2026</span>
         </a>
 
         {/* Desktop Navigation Links */}

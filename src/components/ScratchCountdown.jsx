@@ -168,7 +168,7 @@ export default function ScratchCountdown() {
                 <span className="lotus-sacred-icon" aria-hidden="true">🪷</span>
                 <p className="revealed-save-date">Save The Date</p>
                 <h3 className="revealed-main-date">December 11, 2026</h3>
-                <p className="revealed-venue-title">Gulab Bagh and Hotel Mansarovar • Jaipur</p>
+                <p className="revealed-venue-title">Gulab Bagh and Hotel, Mansarovar, Jaipur</p>
                 <div className="revealed-badge-pill">
                   <CheckCircle2 size={14} className="revealed-check" />
                   <span>Date Revealed</span>

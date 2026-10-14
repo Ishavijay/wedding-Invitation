@@ -42,7 +42,7 @@ export default function FormalInvitation() {
           <div className="invitation-name-box">
             <h2 className="person-display-name">Sameep Vijay</h2>
             <p className="person-parentage">
-              Son of <strong>Mr. Kaushal Vijay &amp; Mrs. Seema Vijay</strong>
+              Son of <strong>Mr. Kaushal Vijay &amp; <span className="parentage-next-line">Mrs. Seema Vijay</span></strong>
             </p>
           </div>
 
@@ -139,6 +139,10 @@ export default function FormalInvitation() {
         .person-parentage strong {
           color: var(--royal-charcoal);
           font-weight: 600;
+        }
+
+        .parentage-next-line {
+          display: inline-block;
         }
 
         .invitation-knot-ampersand {

@@ -228,7 +228,7 @@ export default function RsvpSection({ onOpenPass }) {
                     </div>
                     <div className="summary-line">
                       <span className="summary-label">Venue:</span>
-                      <span className="summary-val">Gulab Bagh and Hotel Mansarovar, Jaipur, Rajasthan</span>
+                      <span className="summary-val">Gulab Bagh and Hotel, Mansarovar, Jaipur, Rajasthan</span>
                     </div>
                   </>
                 )}

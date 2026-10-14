@@ -21,7 +21,7 @@ export default function Footer() {
 
         {/* Auspicious Date & Place */}
         <div className="footer-date-tag">
-          <span>DECEMBER 11, 2026 • GULAB BAGH AND HOTEL MANSAROVAR, JAIPUR, RAJASTHAN</span>
+          <span>DECEMBER 11, 2026 • GULAB BAGH AND HOTEL, MANSAROVAR, JAIPUR, RAJASTHAN</span>
         </div>
 
         {/* Warm Note */}

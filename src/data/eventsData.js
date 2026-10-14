@@ -20,12 +20,12 @@ export const weddingEvents = [
     dateFormatted: "Thursday, December 10, 2026",
     time: "10:00 AM onwards",
     shortTime: "Thu, Dec 10 • 10:00 AM",
-    venue: "Gulab Bagh and Hotel Mansarovar, Jaipur, Rajasthan",
+    venue: "Gulab Bagh and Hotel, Mansarovar, Jaipur, Rajasthan",
     city: "Jaipur, Rajasthan",
     description: "An auspicious morning bathed in golden turmeric blessings, fragrant floral showers, and joyful songs with family.",
     image: "/assets/Wedding events/Rasm-e-Heena.png",
-    attire: "Peach Color / Pastel",
-    attireHex: ["#FFDAB9", "#F7C59F", "#FBE7C6"]
+    attire: "Pink/Peach Color",
+    attireHex: ["#FFC0CB", "#F98B88"]
   },
   {
     id: "sangeet",
@@ -34,24 +34,24 @@ export const weddingEvents = [
     day: "Day 2",
     dateFormatted: "Thursday, December 10, 2026",
     shortTime: "Thu, Dec 10",
-    venue: "Gulab Bagh and Hotel Mansarovar, Jaipur, Rajasthan",
+    venue: "Gulab Bagh and Hotel, Mansarovar, Jaipur, Rajasthan",
     city: "Jaipur, Rajasthan",
     description: "An enchanting evening of ring exchange, energetic choreographed family performances, dazzling fairy lights, and musical symphony.",
     image: "/assets/Wedding events/Mangni.webp",
-    attire: "Suit / Tuxedo for Men & Indo-Western for Women",
-    attireHex: ["#1F2937", "#C59A45", "#731A2A"],
     subEvents: [
       {
         icon: "💍",
         title: "Engagement",
         time: "2:00 PM",
-        description: "Sacred exchange of rings surrounded by family blessings, floral décor, and heartfelt vows of togetherness."
+        description: "Sacred exchange of rings surrounded by family blessings, floral décor, and heartfelt vows of togetherness.",
+        attire: "Silk saree for Women"
       },
       {
         icon: "🎶",
         title: "Sangeet Night",
         time: "6:00 PM onwards",
-        description: "An electrifying evening of choreographed family performances, dazzling fairy lights, dhol beats, and musical symphony."
+        description: "An electrifying evening of choreographed family performances, dazzling fairy lights, dhol beats, and musical symphony.",
+        attire: "Suit / Tuxedo for Men & Indo-Western for Women"
       }
     ]
   },
@@ -63,7 +63,7 @@ export const weddingEvents = [
     dateFormatted: "Friday, December 11, 2026",
     time: "9:00 AM onwards",
     shortTime: "Fri, Dec 11 • 9:00 AM",
-    venue: "Gulab Bagh and Hotel Mansarovar, Jaipur, Rajasthan",
+    venue: "Gulab Bagh and Hotel, Mansarovar, Jaipur, Rajasthan",
     city: "Jaipur, Rajasthan",
     description: "A joyous pre-wedding ritual where family and loved ones come together to celebrate with traditional folk songs, laughter, and heartfelt blessings.",
     image: "/assets/Wedding events/Rasm-e-Heena2.png"
@@ -76,11 +76,11 @@ export const weddingEvents = [
     dateFormatted: "Friday, December 11, 2026",
     time: "7:00 PM Baraat • 8:00 PM Vows",
     shortTime: "Fri, Dec 11 • 7:00 PM Baraat",
-    venue: "Gulab Bagh and Hotel Mansarovar, Jaipur, Rajasthan",
+    venue: "Gulab Bagh and Hotel, Mansarovar, Jaipur, Rajasthan",
     city: "Jaipur, Rajasthan",
     description: "The auspicious royal Baraat procession followed by sacred Vedic mantras around the holy fire as twilight paints the sky.",
     image: "/assets/Wedding events/Wedding Ceremony.webp",
-    attire: "Indo-Western for Men & Traditional for Women",
+    attire: "Traditional",
     attireHex: ["#731A2A", "#C59A45", "#F7E5A9"]
   }
 ];

@@ -108,14 +108,21 @@ export default function WeddingEvents() {
                                 </span>
                               </div>
                               <p className="sub-event-desc">{sub.description}</p>
+                              {sub.attire && (
+                                <div className="sub-event-attire-box">
+                                  <Sparkles size={11} className="sparkle-gold" />
+                                  <span className="sub-attire-label">Attire:</span>
+                                  <span className="sub-attire-desc">{sub.attire}</span>
+                                </div>
+                              )}
                             </div>
                           </div>
                         ))}
                       </div>
                     )}
 
-                    {/* Attire Indicator — only shown when attire data is provided */}
-                    {evt.attire && (
+                    {/* Attire Indicator — only shown when attire data is provided and not covered by sub-events */}
+                    {evt.attire && (!evt.subEvents || !evt.subEvents.some(s => s.attire)) && (
                       <div className="chapter-attire-box">
                         <Sparkles size={14} className="sparkle-gold" />
                         <span className="attire-label">Attire:</span>
@@ -495,6 +502,34 @@ export default function WeddingEvents() {
           font-size: 0.8rem;
           color: var(--royal-muted);
           line-height: 1.5;
+        }
+
+        .sub-event-attire-box {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 0.35rem;
+          background: rgba(247, 229, 169, 0.22);
+          border: 1px solid rgba(197, 154, 69, 0.35);
+          padding: 0.28rem 0.65rem;
+          border-radius: 8px;
+          margin-top: 0.35rem;
+          width: 100%;
+          text-align: center;
+        }
+
+        .sub-attire-label {
+          font-weight: 600;
+          color: var(--royal-maroon);
+          font-size: 0.76rem;
+        }
+
+        .sub-attire-desc {
+          font-size: 0.76rem;
+          color: var(--royal-charcoal);
+          font-weight: 500;
+          flex: 0 1 auto;
         }
 
         @media (max-width: 480px) {
